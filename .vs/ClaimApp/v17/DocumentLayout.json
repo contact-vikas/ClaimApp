@@ -1,0 +1,110 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\vikas\\source\\repos\\ClaimApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2E0B47F3-1A2C-46C9-AB46-0C76A4A9C987}|ClaimAPI\\ClaimAPI.csproj|c:\\users\\vikas\\source\\repos\\claimapp\\claimapi\\services\\claimservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E0B47F3-1A2C-46C9-AB46-0C76A4A9C987}|ClaimAPI\\ClaimAPI.csproj|solutionrelative:claimapi\\services\\claimservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E0B47F3-1A2C-46C9-AB46-0C76A4A9C987}|ClaimAPI\\ClaimAPI.csproj|c:\\users\\vikas\\source\\repos\\claimapp\\claimapi\\controllers\\claimcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E0B47F3-1A2C-46C9-AB46-0C76A4A9C987}|ClaimAPI\\ClaimAPI.csproj|solutionrelative:claimapi\\controllers\\claimcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC8B0DFE-4B1B-4791-8465-0B93CDA701C1}|ClaimApp\\ClaimApp.csproj|c:\\users\\vikas\\source\\repos\\claimapp\\claimapp\\wwwroot\\js\\claim\\employeeclaim.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{EC8B0DFE-4B1B-4791-8465-0B93CDA701C1}|ClaimApp\\ClaimApp.csproj|solutionrelative:claimapp\\wwwroot\\js\\claim\\employeeclaim.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E0B47F3-1A2C-46C9-AB46-0C76A4A9C987}|ClaimAPI\\ClaimAPI.csproj|c:\\users\\vikas\\source\\repos\\claimapp\\claimapi\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E0B47F3-1A2C-46C9-AB46-0C76A4A9C987}|ClaimAPI\\ClaimAPI.csproj|solutionrelative:claimapi\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC8B0DFE-4B1B-4791-8465-0B93CDA701C1}|ClaimApp\\ClaimApp.csproj|c:\\users\\vikas\\source\\repos\\claimapp\\claimapp\\wwwroot\\js\\login.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{EC8B0DFE-4B1B-4791-8465-0B93CDA701C1}|ClaimApp\\ClaimApp.csproj|solutionrelative:claimapp\\wwwroot\\js\\login.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ClaimService.cs",
+              "DocumentMoniker": "C:\\Users\\vikas\\source\\repos\\ClaimApp\\ClaimAPI\\Services\\ClaimService.cs",
+              "RelativeDocumentMoniker": "ClaimAPI\\Services\\ClaimService.cs",
+              "ToolTip": "C:\\Users\\vikas\\source\\repos\\ClaimApp\\ClaimAPI\\Services\\ClaimService.cs",
+              "RelativeToolTip": "ClaimAPI\\Services\\ClaimService.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAABEAAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-07T09:31:30.702Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EmployeeClaim.js",
+              "DocumentMoniker": "C:\\Users\\vikas\\source\\repos\\ClaimApp\\ClaimApp\\wwwroot\\js\\Claim\\EmployeeClaim.js",
+              "RelativeDocumentMoniker": "ClaimApp\\wwwroot\\js\\Claim\\EmployeeClaim.js",
+              "ToolTip": "C:\\Users\\vikas\\source\\repos\\ClaimApp\\ClaimApp\\wwwroot\\js\\Claim\\EmployeeClaim.js",
+              "RelativeToolTip": "ClaimApp\\wwwroot\\js\\Claim\\EmployeeClaim.js",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAuwA8AAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2023-12-07T08:55:13.161Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ClaimController.cs",
+              "DocumentMoniker": "C:\\Users\\vikas\\source\\repos\\ClaimApp\\ClaimAPI\\Controllers\\ClaimController.cs",
+              "RelativeDocumentMoniker": "ClaimAPI\\Controllers\\ClaimController.cs",
+              "ToolTip": "C:\\Users\\vikas\\source\\repos\\ClaimApp\\ClaimAPI\\Controllers\\ClaimController.cs",
+              "RelativeToolTip": "ClaimAPI\\Controllers\\ClaimController.cs",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAIwCgAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-07T09:04:53.644Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\vikas\\source\\repos\\ClaimApp\\ClaimAPI\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "ClaimAPI\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\vikas\\source\\repos\\ClaimApp\\ClaimAPI\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "ClaimAPI\\Controllers\\AccountController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-12-06T04:48:21.076Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Login.js",
+              "DocumentMoniker": "C:\\Users\\vikas\\source\\repos\\ClaimApp\\ClaimApp\\wwwroot\\js\\Login.js",
+              "RelativeDocumentMoniker": "ClaimApp\\wwwroot\\js\\Login.js",
+              "ToolTip": "C:\\Users\\vikas\\source\\repos\\ClaimApp\\ClaimApp\\wwwroot\\js\\Login.js",
+              "RelativeToolTip": "ClaimApp\\wwwroot\\js\\Login.js",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAAAAEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2023-12-06T04:13:12.577Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

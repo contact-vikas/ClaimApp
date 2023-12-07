@@ -1,0 +1,87 @@
+﻿<div class="row">
+    <div class="col-8 offset-2">
+        <div class="card mt-3">
+            <div class="card-header">
+                <h4 class="card-title">Add Claim</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group" id="formGroupClaimTitle">
+                            <label>Claim Title</label>
+                            <input type="text" class="form-control" id="txtClaimTitle"/>
+                            <span class="txt-danger" id="errClaimTitle"></span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group" id="formGroupClaimReason">
+                            <label>Claim Reason</label>
+                            
+                            <select class="form-control" id="txtClaimReason">
+                                <option value="">Select</option>
+                                <option value="Travel">Travel</option>
+                                <option value="Medicine">Medicine</option>
+                                <option value="Food">Food</option>
+                                <option value="Petrol">Petrol</option>
+                                <option value="Mobile Recharge">Mobile Recharge</option>
+                            </select>
+
+                            <span class="txt-danger" id="errClaimReason"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group" id="formGroupClaimAmount">
+                            <label>Claim Amount</label>
+                            <input type="number" class="form-control" id="txtClaimAmount" />
+                            <span class="txt-danger" id="errClaimAmount"></span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group" id="formGroupClaimExpenseDt">
+                            <label>Claim ExpenseDt</label>
+                            <input type="date" class="form-control" id="txtClaimExpenseDt" />
+                            <span class="txt-danger" id="errClaimExpenseDt"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group" id="formGroupClaimEvidence">
+                            <label>Upload Evidence document</label>
+                            <input type="file" class="form-control" id="txtClaimEvidence" />
+                            <span class="txt-danger" id="errClaimEvidence"></span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group" id="formGroupClaimDescription">
+                            <label>Claim Description</label>
+                            <textarea class="form-control" id="txtClaimDescription"></textarea>
+                            <span class="txt-danger" id="errClaimDescription"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <button class="btn btn-info" id="btnReload">Refresh</button>
+                    </div>
+                    <div class="col-6">
+                        <button class="btn btn-info float-right" id="btnSubmit">Submit</button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 mt-3">
+                        <p id="msg"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/claim/employeeclaim.js" type="text/javascript"></script>
