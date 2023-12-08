@@ -2,6 +2,7 @@
 using ClaimAPI.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 
 namespace ClaimAPI.Controllers
 {
@@ -51,6 +52,41 @@ namespace ClaimAPI.Controllers
                 }
             }
             catch(Exception ex)
+            {
+                response.status = -100;
+                response.ok = false;
+                response.data = null;
+                response.message = ex.Message;
+            }
+            return Ok(response);
+        }
+
+        [Route("GetPendingClaims")]
+        [HttpGet]
+
+        public IActionResult GetPendingClaims(int userid,string role)
+        {
+            try
+            {
+                
+                var result=claimService.GetAllPendingRequest(userid,role);
+                if(result.Item1.IsNullOrEmpty())
+                {
+
+                response.status = 200;
+                response.ok = true;
+                response.data = result.Item2;
+                response.message = "Record Found";
+                }
+                else
+                {
+
+                response.status= -100;
+                response.ok = false;
+                    response.message = result.Item1;
+                }
+            }
+            catch (Exception ex)
             {
                 response.status = -100;
                 response.ok = false;

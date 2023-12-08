@@ -11,6 +11,8 @@ namespace ClaimAPI.Services
     public interface IClaimService
     {
         string AddClaimRequest(AddClaim claim);
+        Tuple<string, List<PendingClaimRequest>> GetAllPendingRequest(int userid, string role);
+
     }
     public class ClaimService : IClaimService
     {
@@ -92,6 +94,60 @@ namespace ClaimAPI.Services
             return message;
 
             }
+
+        public Tuple<string, List<PendingClaimRequest>> GetAllPendingRequest(int userid, string role)
+        {
+            string message = string.Empty;
+            List<PendingClaimRequest> lstPendingClaims = new List<PendingClaimRequest>();
+            try
+            {
+                using (var command = context.Database.GetDbConnection().CreateCommand())
+                {
+                    command.CommandText = "USP_GET_Pending_Request";
+                    command.CommandType = CommandType.StoredProcedure;
+                    var parameter = new SqlParameter();
+
+                    parameter = new SqlParameter();
+                    parameter.ParameterName = "@userid";
+                    parameter.SqlValue = userid;
+                    parameter.SqlDbType = SqlDbType.Int;
+                    parameter.Direction = ParameterDirection.Input;
+                    command.Parameters.Add(parameter);
+
+                    parameter = new SqlParameter();
+                    parameter.ParameterName = "@role";
+                    parameter.SqlValue = role;
+                    parameter.SqlDbType = SqlDbType.VarChar;
+                    parameter.Direction = ParameterDirection.Input;
+                    command.Parameters.Add(parameter);
+
+                    context.Database.OpenConnection();
+                    var result = command.ExecuteReader();
+                    while (result.Read())
+                    {
+                        PendingClaimRequest claim = new PendingClaimRequest();
+                        claim.Id = result["Id"].ToString();
+                        claim.Amount = result["Amount"].ToString();
+                        claim.Claim_Title = result["Claim_Title"].ToString();
+                        claim.Claim_Reason = result["Claim_Reason"].ToString();
+                        claim.Claim_Description = result["Claim_Description"].ToString();
+                        claim.ClaimDt= result["ClaimDt"].ToString();
+                        claim.Evidence= result["Evidence"].ToString();
+                        claim.ExpenseDt= result["ExpenseDt"].ToString();
+                        claim.CurrentStatus= result["CurrentStatus"].ToString();
+                        claim.Nm= result["Nm"].ToString();
+
+                        lstPendingClaims.Add(claim);
+                    }
+                        context.Database.CloseConnection();
+                }
         }
- }
+            catch (Exception ex)
+            {
+                message = ex.Message;
+            }
+            return new Tuple<string,List<PendingClaimRequest>>(message, lstPendingClaims);
+        }
+    }
+}
 

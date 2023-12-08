@@ -8,5 +8,10 @@ namespace ClaimApp.Controllers
         {
             return View();
         }
+        public IActionResult ShowClaim(string Role)
+        {
+            ViewBag.Role = Role;
+            return View();
+        }
     }
 }
