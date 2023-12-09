@@ -1,4 +1,6 @@
-﻿using System.Diagnostics;
+﻿using System.Data;
+using System;
+using System.Diagnostics;
 using System.Security.Policy;
 
 namespace ClaimAPI.Models
@@ -26,6 +28,16 @@ namespace ClaimAPI.Models
         public string ExpenseDt { get; set; }
         public string CurrentStatus { get; set; }
         public string  Nm { get; set; }
+
+    }
+
+    public class ClaimAction
+    {
+        public string role { get; set; }
+        public int action { get; set; }
+        public string remark { get; set; }
+        public int claimid { get; set; }
+        public int userid { get; set; }
 
     }
 }

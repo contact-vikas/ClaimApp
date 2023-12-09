@@ -96,6 +96,39 @@ namespace ClaimAPI.Controllers
             return Ok(response);
         }
 
+        [Route("ActionClaim")]
+        [HttpPost]
+
+        public IActionResult ActionClaim(ClaimAction action)
+        {
+            try
+            {
+                string result=claimService.ClaimAction(action);
+                if (string.IsNullOrEmpty(result))
+                {
+
+                response.ok=true;
+                response.status = 200;
+                    response.message = "Claim updated successfully!";
+                }
+                else
+                {
+                    response.status = -100;
+                    response.ok = false;
+                    response.data = null;
+                    response.message = result;
+
+                }
+            }
+            catch(Exception ex) {
+                response.status = -100;
+                response.ok = false;
+                response.data = null;
+                response.message = ex.Message;
+            }
+            return Ok(response);
+        }
+
         private string UploadEvidence(IFormFile file)
         {
             var rootpath = Environment.ContentRootPath;

@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 using System.Data;
 using System.Security.Policy;
+using System.Security.Claims;
 
 namespace ClaimAPI.Services
 {
@@ -12,6 +13,8 @@ namespace ClaimAPI.Services
     {
         string AddClaimRequest(AddClaim claim);
         Tuple<string, List<PendingClaimRequest>> GetAllPendingRequest(int userid, string role);
+
+        string ClaimAction(ClaimAction action);
 
     }
     public class ClaimService : IClaimService
@@ -147,6 +150,64 @@ namespace ClaimAPI.Services
                 message = ex.Message;
             }
             return new Tuple<string,List<PendingClaimRequest>>(message, lstPendingClaims);
+        }
+
+        public string ClaimAction(ClaimAction action)
+        {
+            string message = string.Empty;
+            try
+            {
+                using(var command = context.Database.GetDbConnection().CreateCommand())
+                {
+                    command.CommandText = "usp_update_claim";
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    var parameter = new SqlParameter();
+
+                    parameter = new SqlParameter();
+                    parameter.ParameterName = "@role";
+                    parameter.SqlValue=action.role;
+                    parameter.SqlDbType = SqlDbType.VarChar;
+                    parameter.Direction = ParameterDirection.Input;
+                    command.Parameters.Add(parameter);
+
+                    parameter = new SqlParameter();
+                    parameter.ParameterName = "@action";
+                    parameter.SqlValue = action.action;
+                    parameter.SqlDbType = SqlDbType.Int;
+                    parameter.Direction = ParameterDirection.Input;
+                    command.Parameters.Add(parameter);
+
+                    parameter = new SqlParameter();
+                    parameter.ParameterName = "@remark";
+                    parameter.SqlValue = action.remark;
+                    parameter.SqlDbType = SqlDbType.VarChar;
+                    parameter.Direction = ParameterDirection.Input;
+                    command.Parameters.Add(parameter);
+
+                    parameter = new SqlParameter();
+                    parameter.ParameterName = "@claimid";
+                    parameter.SqlValue = action.claimid;
+                    parameter.SqlDbType = SqlDbType.Int;
+                    parameter.Direction = ParameterDirection.Input;
+                    command.Parameters.Add(parameter);
+
+                    parameter = new SqlParameter();
+                    parameter.ParameterName = "@userid";
+                    parameter.SqlValue = action.userid;
+                    parameter.SqlDbType = SqlDbType.Int;
+                    parameter.Direction = ParameterDirection.Input;
+                    command.Parameters.Add(parameter);
+
+                    context.Database.OpenConnection();
+                    var result=command.ExecuteScalar();
+                }
+            }
+            catch(Exception ex)
+            {
+                message = ex.Message;
+            }
+            return message;
         }
     }
 }
