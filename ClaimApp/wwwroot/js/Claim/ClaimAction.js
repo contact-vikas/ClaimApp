@@ -153,3 +153,7 @@ function ActionClaimHistory(claimid) {
         }
     })
 }
+
+function DownloadFile(path) {
+    window.open("/Claim/Download?path=" + path, "_blank")
+}

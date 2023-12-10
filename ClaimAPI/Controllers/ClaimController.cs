@@ -160,6 +160,40 @@ namespace ClaimAPI.Controllers
             return Ok(response);
         }
 
+        [Route("Download")]
+        [HttpPost]
+
+        public IActionResult Download()
+        {
+            try
+            {
+                string path = Request.Form["path"].ToString();
+                if (System.IO.File.Exists(path))
+                {
+                    byte[] bytes=System.IO.File.ReadAllBytes(path);
+                    response.status = 200;
+                    response.ok = true;
+                    response.data = bytes;
+                    response.message = "File read successfully!";
+                }
+                else
+                {
+                    response.status = -100;
+                    response.ok = false;
+                    response.data = null;
+                    response.message = "File not exist!";
+                }
+            }
+            catch(Exception ex)
+            {
+                response.status = -100;
+                response.ok = false;
+                response.data = null;
+                response.message = ex.Message;
+            }
+            return Ok(response);
+        }
+
         private string UploadEvidence(IFormFile file)
         {
             var rootpath = Environment.ContentRootPath;
