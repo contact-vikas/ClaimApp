@@ -26,6 +26,12 @@ function GelAllPendingClaims() {
                     data: response.data,
                     columns: [
                         { "data": "claim_Title" },
+                        {
+                            "data": "id", class: "text-center", render: function (id) {
+                                var btn = '<a class="btn btn-sm btn-info" onclick="ActionClaimHistory(' + id + ')">View</a>'
+                                return btn
+                            }
+                        },
                         { "data": "claim_Reason" },
                         { "data": "claimDt" },
                         { "data": "amount" },
@@ -111,5 +117,39 @@ function ApproveRejectRequest(action) {
             console.log(err)
         }
 
+    })
+}
+
+
+function ActionClaimHistory(claimid) {
+    $("#modalActionHistory").modal("show")
+    $.ajax({
+        "url": base_url + "Claim/GetClaimActionHistory",
+        "method": "get",
+        contentType: JSON,
+        headers: {
+            "Authorization": "Bearer " + localStorage.getItem("token")
+        },
+        "data": { "claimid": claimid },
+        "success": function (response) {
+            if (response.ok) {
+                $("#tblActionHistory").DataTable().destroy()
+                $("#tblActionHistory").DataTable({
+                    data: response.data,
+                    columns: [
+                        { "data": "actionDt" },
+                        { "data": "nm" },
+                        { "data": "action" },
+                        { "data": "remarks" },
+                    ]
+                })
+            }
+            else {
+                $("#msg").html(response.message).css("color", "red")
+            }
+        },
+        "error": function (err) {
+            console.log(err)
+        }
     })
 }

@@ -129,6 +129,37 @@ namespace ClaimAPI.Controllers
             return Ok(response);
         }
 
+        [Route("GetClaimActionHistory")]
+        [HttpGet]
+
+        public IActionResult GetClaimActionHistory(int claimid)
+        {
+            var result=claimService.GetClaimActionHistory(claimid);
+            try
+            {
+                if (string.IsNullOrEmpty( result.Item1))
+                {
+                    response.status=200;
+                    response.ok = true;
+                    response.data = result.Item2;
+                    response.message = "Claim Action fetched successfully";
+                }
+                else
+                {
+                    response.status = -100;
+                    response.ok = false;
+                    response.message = "Claim Action not fetched successfully";
+                }
+            }
+            catch(Exception ex)
+            {
+                response.status = -100;
+                response.ok = false;
+                response.message = ex.Message;
+            }
+            return Ok(response);
+        }
+
         private string UploadEvidence(IFormFile file)
         {
             var rootpath = Environment.ContentRootPath;

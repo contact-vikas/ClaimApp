@@ -40,4 +40,12 @@ namespace ClaimAPI.Models
         public int userid { get; set; }
 
     }
+
+    public class ClaimActionHistory
+    {
+        public string ActionDt {  get; set; }
+        public string Action { get; set; }
+        public string Nm { get; set; }
+        public string Remarks { get; set; }
+    }
 }

@@ -15,6 +15,7 @@ namespace ClaimAPI.Services
         Tuple<string, List<PendingClaimRequest>> GetAllPendingRequest(int userid, string role);
 
         string ClaimAction(ClaimAction action);
+        Tuple<string, List<ClaimActionHistory>> GetClaimActionHistory(int claimid);
 
     }
     public class ClaimService : IClaimService
@@ -208,6 +209,46 @@ namespace ClaimAPI.Services
                 message = ex.Message;
             }
             return message;
+        }
+
+        public Tuple<string, List<ClaimActionHistory>> GetClaimActionHistory(int claimid)
+        {
+            string message = string.Empty;
+            List<ClaimActionHistory> lstclaim = new List<ClaimActionHistory>();
+            try
+            {
+                using (var command = context.Database.GetDbConnection().CreateCommand())
+                {
+                    command.CommandText = "usp_get_claim_action_history";
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    var parameter=new SqlParameter();
+
+                    parameter = new SqlParameter();
+                    parameter.ParameterName = "@claim_id";
+                    parameter.SqlValue= claimid;
+                    parameter.SqlDbType = SqlDbType.Int;
+                    parameter.Direction = ParameterDirection.Input;
+                    command.Parameters.Add(parameter);
+                    context.Database.OpenConnection();
+                    var result=command.ExecuteReader();
+                    while (result.Read())
+                    {
+                        ClaimActionHistory claim = new ClaimActionHistory();
+                        claim.ActionDt = result["ActionDt"].ToString();
+                        claim.Action = result["Action"].ToString();
+                        claim.Nm = result["Nm"].ToString();
+                        claim.Remarks = result["Remarks"].ToString();
+                        lstclaim.Add(claim);
+                    }
+                    context.Database.CloseConnection();
+                }
+            }
+            catch (Exception ex)
+            {
+                message = ex.Message;
+            }
+                   return new Tuple<string,List<ClaimActionHistory>>(message, lstclaim);
         }
     }
 }
